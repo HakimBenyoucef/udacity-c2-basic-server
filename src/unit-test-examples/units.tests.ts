@@ -1,4 +1,4 @@
-import { add, divide } from './units';
+import { add, divide, concat} from './units';
 
 import { expect } from 'chai';
 import 'mocha';
@@ -38,3 +38,18 @@ describe('divide', () => {
 // @TODO try creating a new describe block for the "concat" method
 // it should contain an it block for each it statement in the units.ts @TODO.
 // don't forget to import the method ;)
+describe('concat two strings', () => {
+
+  it('should concat Hakim and Benyoucef', () =>{
+    const s1: string = "Hakim";
+    const s2: string = "Benyoucef";
+    const result = concat(s1, s2);
+    expect(result).to.equal("HakimBenyoucef");
+  })
+
+  it('should throw an error if one parameter is empty', () => {
+    const s1: string = "";
+    const s2: string = "Benyoucef";
+    expect(() => {concat(s1, s2)}).to.throw('Parameters should not be empty')
+  })
+})
